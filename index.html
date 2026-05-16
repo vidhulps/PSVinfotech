@@ -1279,6 +1279,120 @@
       margin-bottom: 2rem
     }
 
+    /* ── PORTFOLIO GRID ── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .portfolio-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--tr);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--neon-blue);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .4), 0 0 30px rgba(0, 212, 255, .15);
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .portfolio-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--tr);
+    }
+
+    .portfolio-card:hover .portfolio-img img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(2, 11, 24, .7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--tr);
+      backdrop-filter: blur(4px);
+    }
+
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .portfolio-content h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      margin-bottom: .6rem;
+      color: var(--text-primary);
+    }
+
+    .portfolio-content p {
+      color: var(--text-muted);
+      font-size: .9rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .portfolio-tags span {
+      background: rgba(0, 212, 255, .1);
+      border: 1px solid rgba(0, 212, 255, .2);
+      padding: .2rem .6rem;
+      border-radius: 6px;
+      font-size: .75rem;
+      color: var(--neon-blue);
+      font-family: var(--font-ui);
+    }
+
+    .portfolio-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--neon-blue);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .9rem;
+      transition: var(--tr);
+    }
+
+    .portfolio-link:hover {
+      letter-spacing: .5px;
+      text-shadow: 0 0 10px rgba(0, 212, 255, .5);
+    }
+
     /* ── CONTACT ── */
     .contact-grid {
       display: grid;
@@ -1901,19 +2015,31 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag">Our Work</span>
-        <h2 class="section-title">Portfolio <span class="gradient-text">Coming Soon</span></h2>
-        <p class="section-desc">We're building something amazing to showcase our work</p>
+        <h2 class="section-title">Our <span class="gradient-text">Portfolio</span></h2>
+        <p class="section-desc">Showcasing our latest digital innovations and success stories</p>
       </div>
-      <div class="coming-soon-box reveal">
-        <div class="cs-animation">
-          <div class="cs-orbit">
-            <div class="cs-planet"></div>
+
+      <div class="portfolio-grid reveal">
+        <!-- Project 1: PSV Fitness -->
+        <div class="portfolio-card">
+          <div class="portfolio-img">
+            <img src="psv-fitness.png" alt="PSV Fitness Preview">
+            <div class="portfolio-overlay">
+              <a href="https://psvfitness.vercel.app" target="_blank" class="btn-primary">View Website</a>
+            </div>
           </div>
-          <div class="cs-text">🚀</div>
+          <div class="portfolio-content">
+            <div class="portfolio-tags">
+              <span>Web Development</span>
+              <span>Fitness</span>
+              <span>AI Integration</span>
+            </div>
+            <h3>PSV Fitness</h3>
+            <p>A high-performance fitness platform featuring dynamic training programs, elite coaching profiles, and
+              AI-powered nutrition tools.</p>
+            <a href="https://psvfitness.vercel.app" target="_blank" class="portfolio-link">psvfitness.vercel.app ↗</a>
+          </div>
         </div>
-        <h3>Launching Soon</h3>
-        <p>Our portfolio showcasing 150+ projects is under construction. Check back shortly!</p>
-        <a href="#contact" class="btn-primary">Get Notified</a>
       </div>
     </div>
   </section>
